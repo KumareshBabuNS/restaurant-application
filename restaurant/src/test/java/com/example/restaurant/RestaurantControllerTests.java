@@ -40,7 +40,7 @@ public class RestaurantControllerTests {
 	@Test
 	public void findCheapSushiPlaces() {
 		given(repository.findByCategoryAndPricePerPersonLessThan("sushi", 20.00))
-				.willReturn(Flux.just(new Restaurant("Sushi2Go", 35.00, "sushi")));
+				.willReturn(Flux.just(new Restaurant("Sushi2Go", 15.00, "sushi")));
 		this.webTestClient.get()
 				.uri("/restaurants?category={c}&maxPrice={s}", "sushi", 20.00)
 				.exchange()
